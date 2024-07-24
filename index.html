@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+</head>
+<body style="background-color: lightblue;">
+    <div>
+        <h1>Unit Converter</h1>
+    </div>
+    <div>
+        <input type="text" placeholder="Enter number...">
+        <select id="SelectConvertType">
+            <option value="miles to kilometers">Miles to Kilometers</option>
+            <option value="kilometers to miles">Kilometers to Miles</option>
+        </select>
+        <button onclick="converter()">Submit</button>
+        <br>
+    </div>
+
+    <span style="background-color: plum;">Result: 0</span>
+
+    <script>
+        function converter() {
+            const input = document.querySelector("input").value
+            const selectedConvertType = document.getElementById("SelectConvertType").value;
+            let notConvertedInput = input;
+            let convertedInput = input || 0;
+            if (selectedConvertType === "miles to kilometers"){
+                convertedInput = notConvertedInput * 1.6;
+            } else {
+                convertedInput = notConvertedInput / 1.6;
+            }
+            const span = document.querySelector("span");
+            span.innerHTML = "Result: " + convertedInput;
+        }
+    </script>
+</body>
+</html>
